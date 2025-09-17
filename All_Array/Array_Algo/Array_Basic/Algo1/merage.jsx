@@ -18,17 +18,31 @@ for(let i=0; i<data1.length; i++){
 
 for(let i=0; i<data2.length; i++){
 
-    // console.log(data3 , 'data3')
+    
+console.log(data1.length + i);  
+
+    | i (loop counter) | data1.length | Expression `data1.length + i` | Output printed |
+| ---------------- | ------------ | ----------------------------- | -------------- |
+| 0                | 4            | 4 + 0 = 4                     | 4              |
+| 1                | 4            | 4 + 1 = 5                     | 5              |
+| 2                | 4            | 4 + 2 = 6                     | 6              |
+| 3                | 4            | 4 + 3 = 7                     | 7              |
 
 
-    // data3[data1.length]=data2[i]
-
-
-// data1.length = 4 (since data1 = [1, 2, 2, 3])
-
-// So data3[4 + i] = data2[i] → we are appending to the end of data3.
+    
 
     data3[data1.length+i]=data2[i]
+        
+We’ll track variables (i, data1.length + i, data2[i], data3 after update):
+
+
+| i | data1.length + i | data2\[i] | Action          | data3 after step            |
+| - | ---------------- | --------- | --------------- | --------------------------- |
+| 0 | 4                | 7         | `data3[4] = 7`  | `[1, 2, 2, 3, 7]`           |
+| 1 | 5                | 8         | `data3[5] = 8`  | `[1, 2, 2, 3, 7, 8]`        |
+| 2 | 6                | 9         | `data3[6] = 9`  | `[1, 2, 2, 3, 7, 8, 9]`     |
+| 3 | 7                | 10        | `data3[7] = 10` | `[1, 2, 2, 3, 7, 8, 9, 10]` |
+
 
     // data3[i]=data2[i]
 }
