@@ -32,8 +32,27 @@ console.log(data1.length + i);
     
 
     data3[data1.length+i]=data2[i]
-        
+
+
+    data3[data1.length + i] = data2[i];
+At i = 0 → we write into index 4
+
+At i = 1 → index 5
+
+At i = 2 → index 6
+
+At i = 3 → index 7
+    
 We’ll track variables (i, data1.length + i, data2[i], data3 after update):
+
+
+| i | data1.length + i | data2\[i] | Action          | data3 after step            |
+| - | ---------------- | --------- | --------------- | --------------------------- |
+| 0 | 4                | 7         | `data3[4] = 7`  | `[1, 2, 2, 3, 7]`           |
+| 1 | 5                | 8         | `data3[5] = 8`  | `[1, 2, 2, 3, 7, 8]`        |
+| 2 | 6                | 9         | `data3[6] = 9`  | `[1, 2, 2, 3, 7, 8, 9]`     |
+| 3 | 7                | 10        | `data3[7] = 10` | `[1, 2, 2, 3, 7, 8, 9, 10]` |
+
 
 
 | i | data1.length + i | data2\[i] | Action          | data3 after step            |
