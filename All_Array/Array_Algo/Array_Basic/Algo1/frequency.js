@@ -1,3 +1,10 @@
+
+let one={}
+let string='kihal;'
+one['name']=string
+console.log(one)
+
+
 🔹 What is Frequency in JavaScript?
 
 In programming, frequency means how many times an element/value occurs in a collection (like an array, string, or object).

@@ -101,19 +101,49 @@ console.log(Reverse(data)); // [10, 20, 60, 70, 90, 80, 100]
 
 
 
-//------------------->>. Revsion -------------
+🔄 How they’re connected
 
-let data = [10, 20, 30, 40];  // new methods 
-let start = 0;
-let end = data.length - 1;
+In recursion, start >= end means STOP.
 
-while (start < end) {
-    [data[start], data[end]] = [data[end], data[start]];
-    start++;
-    end--;
-}
+In while loop, start < end means GO.
 
-console.log(data); // Output: [40, 30, 20, 10]
+They are exact logical opposites, but both achieve the same result:
+
+Recursive:
+
+Check stop condition first → if not, do work → call again.
+
+While loop:
+
+Check continue condition first → if true, do work → loop again.
+
+🔎 Example with [1,2,3,4]
+
+Recursion (if (start >= end))
+
+Call 1: start=0, end=3 → swap 1 & 4
+
+Call 2: start=1, end=2 → swap 2 & 3
+
+Call 3: start=2, end=1 → stop (start >= end)
+
+While (while (start < end))
+
+Iter 1: start=0, end=3 → swap 1 & 4
+
+Iter 2: start=1, end=2 → swap 2 & 3
+
+Iter 3: start=2, end=1 → loop exits (start < end is false)
+
+Both end with [4,3,2,1].
+
+✅ Summary:
+
+start >= end → STOP condition (recursion).
+
+start < end → RUN condition (while loop).
+They are opposite, but equivalent in controlling execution.
+
 
 
 
@@ -157,3 +187,28 @@ for (let i = 0; i < array1.length; i++) {
 // Print the swapped arrays
 console.log("Swapped Array 1: " + array1); // Output: [30, 40]
 console.log("Swapped Array 2: " + array2); // Output: [10, 20]
+
+
+
+// --->Recursion  Method to reviers  --------------->>>
+
+function revivie(x = 3) {
+  if (x < 1) return;        // base condition
+  console.log(x);
+  revivie(x - 1);           // ✅ pass decremented value
+}
+
+revivie();
+
+console.log(3 < 1)
+
+
+let data = [10, 20, 30, 40];
+
+function revivie(x = data.length - 1) {
+  if (x < 0) return;              // ✅ base condition: stop when index is below 0
+  console.log(data[x]);          // print current element
+  revivie(x - 1);               // move to previous index
+}
+
+revivie();

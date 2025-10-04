@@ -1,5 +1,228 @@
-console.log(sum(2, 3)); // 5
-console.log(sum(2)(3)); // 5
+let data = [10, 20, 30, 40, 50];
+let ind = 1;
+let add = 'jugal sharma';
+
+function instering(data, ind, add) {
+
+    debugger;
+  // 1️⃣ Save the value currently at index before inserting   
+//   let pushedValue = data[ind];
+
+  // 2️⃣ Shift elements from end → index
+  for (let i = data.length - 1; i >= ind; i--) {
+    data[i + 1] = data[i];
+  }
+
+  // 3️⃣ Insert new value at index
+  data[ind] = add;
+
+  // 4️⃣ Show results
+//   console.log("Pushed value:", pushedValue);
+  console.log("New array:", data);
+}
+
+instering(data, ind, add);
+
+
+
+// this is a reverser array console.log
+// console.log(4>0)
+// console.log(0>=0)
+// console.log(-1 >=  0)
+// function revivie(x = 3) {
+
+//   if (x < data.length) return;   
+//        // base condition
+//   console.log(data[x]);
+//   revivie(x - 1);           // ✅ pass decremented value
+// }
+
+// let data=[10 , 20 , 30 , 40]
+
+
+// revivie();
+
+
+
+// function revivieone(x=1){
+//     if(x > 3){
+//         console.log(true)
+//         return ;
+//     }
+//     console.log(false)
+//     console.log(x)
+//     revivieone(x+1)
+// }
+
+// revivieone()
+
+// console.log(1 > 3)
+
+
+
+
+
+
+
+// function findMissingNumber(num) {
+//     debugger;
+//     let sum = 0;
+//     console.log(num)
+//     for (let i = 0; i < num.length; i++) {
+    
+
+//     }
+//     return num.length * (num.length + 1) / 2 - sum;
+
+//     4 * 4+1 / 2 -7
+
+//     4*5 / 2 - 7
+
+//     20 / 2 - 7
+
+//     10 -7 
+//     3
+// }
+
+
+// For your array [0,1,2,4]:
+
+// num.length = 4
+
+// num.length + 1 = 5
+
+// Multiply: 4 * 5 = 20
+
+// Divide by 2: 20 / 2 = 10
+
+// Subtract sum of array: 10 - 7 = 3
+
+// ✅ Result: 3 → the missing number
+
+// console.log(findMissingNumber([0,1,2,4])); // Output will be 3 (as 3 is the missing number in the array)
+
+
+
+
+
+// 1️⃣ What each part means
+
+// num.length
+
+// This is the number of elements in your array.
+
+// Example: [0,1,2,4] → num.length = 4
+
+// num.length + 1
+
+// Since one number is missing, the full range should have num.length + 1 numbers.
+
+// Example: 4 + 1 = 5 → numbers from 0 to 4
+
+// Multiplication and division: num.length * (num.length + 1) / 2
+
+// This is the formula for sum of first n natural numbers starting from 0:
+// 	​
+
+// Expected sum from 0 to n → 0+1+2+3+4 = 10
+
+// Subtract actual sum from expected sum → 10 - 7 = 3 ✅
+
+
+
+
+//     sum += num[i];
+
+//         setp first 
+//         i=0
+//         sum +=num[0]
+//         //sum=0
+
+//         second step 
+//         i=1
+//         sum+num[1]
+//         //sum =1
+
+//         threed step 
+//         i=2
+//         sum+=num[2]
+//         sum=3
+
+//         forur step 
+
+//         i=3
+//         sum+=num[4]
+//         sum=7
+
+
+
+// ✅ Simple JavaScript Example
+// function sumNatural(n) {
+//     return (n * (n + 1)) / 2;
+// }
+// console.log(sumNatural(5));   // 15 → (5×6)/2
+// console.log(sumNatural(10));  // 55 → (10×11)/2
+// console.log(sumNatural(100)); // 5050 → (100×101)/2
+
+// 🧠 Step-by-step for n = 5
+// n = 5
+// n + 1 = 6
+// n × (n + 1) = 5 × 6 = 30
+// 30 ÷ 2 = 15
+// ✅ Sum = 15
+
+
+
+// Type: Divide and Conquer
+// Time Complexity: O(n log n)
+// Space Complexity: O(n)
+// Stability: Stable
+// Use Case: Stable sorting needed, linked list sorting
+
+// function mergeSort(arr) {
+//   if (arr.length < 2) return arr;
+//   let mid = Math.floor(arr.length / 2);
+//   let left = mergeSort(arr.slice(0, mid));
+//   let right = mergeSort(arr.slice(mid));
+//   let result = [];
+//   while(left.length && right.length) {
+//     if (left[0] < right[0]) result.push(left.shift());
+//     else result.push(right.shift());
+//   }
+//   return [...result, ...left, ...right];
+// }
+
+// console.log(mergeSort([8, 20, -2, 4, -6]));
+// Output: [-6, -2, 4, 8, 20]
+
+// function quickSort(arr) {
+
+
+//   if (arr.length < 2) return arr;  // base case: array of 0 or 1 element is already sorted
+
+//   let pivot = arr[arr.length - 1]; // choose the last element as pivot
+// console.log(pivot)
+
+//   let left = [];   // elements smaller than pivot
+//   let right = [];  // elements greater or equal to pivot
+
+//   // partition the array
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     if (arr[i] < pivot) {
+//       left.push(arr[i]);
+//     } else {
+//       right.push(arr[i]);
+//     }
+//   }
+
+//   // recursively sort left and right, then combine
+//   return [...quickSort(left), pivot, ...quickSort(right)];
+// }
+
+// const arr = [20 , 30 , 40 , 10];
+// console.log(quickSort(arr)); // [-6, -2, 4, 8, 20]
+
+
 
 
 

@@ -147,6 +147,21 @@ let one =setInterval(()=>{
 
 
 :::
+
+
+
+function fat(x) {
+    if (x > 3) return;   // stop when x > 3
+    console.log(x);      // print current value
+    fat(x + 1);          // recursive call with next value
+
+  }
+
+
+  let x=0
+fat(x);
+
+
 Recursive Approach
    function fat(x){
     if(x  < 3){

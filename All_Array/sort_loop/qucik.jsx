@@ -19,6 +19,62 @@ const arr = [8, 20, -2, 4, -6]
 console.log(quickSort(arr)) // [-6, -2, 4, 8, 20]
 
 
+
+Ah! You want how Quick Sort works in a “step-by-step inverted view” — basically like looking at the recursion from top to bottom or tree-style visualization. Let’s do it for your array [20, 30, 40, 10].
+
+Step 0: Original Array
+Array: [20, 30, 40, 10]
+Pivot = 10
+Left (< pivot)  = []
+Right (>= pivot) = [20, 30, 40]
+
+Step 1: Sort Right [20, 30, 40]
+Array: [20, 30, 40]
+Pivot = 40
+Left = [20, 30]
+Right = []
+
+Step 2: Sort Left [20, 30]
+Array: [20, 30]
+Pivot = 30
+Left = [20]
+Right = []
+
+Step 3: Base Cases
+Left = [20] → already sorted
+Right = [] → already sorted
+Combine → [20, 30]
+
+Step 4: Combine with Step 1 Pivot
+Left = [20, 30]
+Pivot = 40
+Right = []
+Combine → [20, 30, 40]
+
+Step 5: Combine with Original Pivot
+Left = [] 
+Pivot = 10
+Right = [20, 30, 40]
+Combine → [10, 20, 30, 40] ✅ Sorted
+
+🔑 Visualization as a “Recursion Tree”
+[20,30,40,10]  pivot=10
+   /      \
+ []        [20,30,40] pivot=40
+           /       \
+       [20,30]      []
+       pivot=30
+       /     \
+     [20]     []
+
+
+Leaves → base case arrays [20] or []
+
+Combine upwards → [20,30] → [20,30,40] → [10,20,30,40]
+
+This top-down view shows exactly how the recursion splits the array, and then the bottom-up combination produces the final sorted array.
+
+
 🔹 Quick Sort Concept
 
 Pick a pivot (you chose the last element).

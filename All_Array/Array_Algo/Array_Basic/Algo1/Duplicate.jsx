@@ -116,6 +116,8 @@ function removeDuplicates(nums) { ///RemoveDuplication Simple
 
 
 function removeDuplicatesNew(nums) {  /// second remove deUplication 
+
+  debugger;
   if (nums.length === 0) return 0;
   let i = 0;
 
