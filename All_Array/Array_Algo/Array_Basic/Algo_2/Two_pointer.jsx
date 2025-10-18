@@ -1,3 +1,12 @@
+| Problem                  | Two Pointer Style         | Time |
+| ------------------------ | ------------------------- | ---- |
+| Pair sum in sorted array | Start + End pointers      | O(n) |
+| Reverse array            | Start + End pointers      | O(n) |
+| Remove duplicates        | Slow + Fast pointers      | O(n) |
+| Check palindrome         | Start + End pointers      | O(n) |
+| Dutch flag sort          | Low + Mid + High pointers | O(n) |
+
+
 function twoSum(nums, target) {
   console.log("📥 Input array:", nums);
   console.log("🎯 Target sum:", target);
@@ -35,29 +44,74 @@ console.log("\n🔚 Result:", twoSum(nums, target));
 
 
 2:::Two pointer
-function twoSum(arr, target) {
-    // Sort the array (if it's not already sorted)
-    arr.sort((a, b) => a - b);
+function TwoPointer(data, target) {
+  let start = 0;
+  let end = data.length - 1;
 
-    let left = 0;
-    let right = arr.length - 1;
+  while (start < end) {
+    const sum = data[start] + data[end];
 
-    while (left < right) {
-        const sum = arr[left] + arr[right];
-        if (sum === target) {
-            return [arr[left], arr[right]];
-        } else if (sum < target) {
-            left++;
-        } else {
-            right--;
-        }
+    if (sum === target) {
+      return [data[start], data[end]];  // pair found
+    } else if (sum < target) {
+      start++;   // need a bigger sum
+    } else {
+      end--;     // need a smaller sum
     }
+  }
 
-    return null; // No such pair found
+  return null;  // no pair found
 }
 
 // Example usage
 const arr = [2, 7, 11, 15];
 const target = 9;
 console.log(twoSum(arr, target)); // Output: [2, 7]
+
+
+Perfect! Let’s go step by step and see how your TwoPointer
+ function works for the input:
+
+data = [1, 2, 3, 4, 6, 8, 9]
+target = 10
+
+
+
+Step 0 — Initialization
+start = 0  // points to 1
+end = 6    // points to 9
+
+
+Step 1
+sum = data[start] + data[end] = 1 + 9 = 10
+
+
+sum === target ✅ → return [data[start], data[end]] = [1, 9]
+
+Function ends here because pair found.
+
+Console Output
+6      // end pointer index
+10     // sum of start and end
+[1, 9] // final result
+
+
+
+⚡ If we had no immediate pair:
+
+Let’s assume target = 14 (example):
+
+Step by step loop:
+
+
+
+| start | end | data[start] | data[end] | sum | action                     |
+| ----- | --- | ----------- | --------- | --- | -------------------------- |
+| 0     | 6   | 1           | 9         | 10  | sum < 14 → start++         |
+| 1     | 6   | 2           | 9         | 11  | sum < 14 → start++         |
+| 2     | 6   | 3           | 9         | 12  | sum < 14 → start++         |
+| 3     | 6   | 4           | 9         | 13  | sum < 14 → start++         |
+| 4     | 6   | 6           | 9         | 15  | sum > 14 → end--           |
+| 4     | 5   | 6           | 8         | 14  | sum === 14 → return [6, 8] |
+
 

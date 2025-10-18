@@ -1,27 +1,94 @@
-let data = [10, 20, 30, 40, 50];
-let ind = 1;
-let add = 'jugal sharma';
+let obj={
+    name:'jugal',
+    class:'10th',
 
-function instering(data, ind, add) {
-
-    debugger;
-  // 1️⃣ Save the value currently at index before inserting   
-//   let pushedValue = data[ind];
-
-  // 2️⃣ Shift elements from end → index
-  for (let i = data.length - 1; i >= ind; i--) {
-    data[i + 1] = data[i];
-  }
-
-  // 3️⃣ Insert new value at index
-  data[ind] = add;
-
-  // 4️⃣ Show results
-//   console.log("Pushed value:", pushedValue);
-  console.log("New array:", data);
+    greet:function(){
+        return [this.name , this.class]
+    }
 }
 
-instering(data, ind, add);
+console.log(obj.greet())
+
+// Bind call apply
+
+
+
+
+
+
+
+// [2, 8] ✅
+
+// i = 3
+
+// Condition: 3 < 5 ✅
+
+// i === 3? ✅ → execute data[i + 1] = data[i] → data[4] = data[3]
+
+// So, data[4] becomes 40 (was 50)
+
+// Array now: [10, 20, 30, 40, 40]
+
+// console.log(i) → prints 3
+
+// Increment: i += 3 → i = 6
+
+// i = 6
+
+// Condition: 6 < 5 ❌ → loop ends
+
+// console.log('ppp')
+// console.log(data); // Check updated array
+
+// // i=0 
+// 0===2
+
+// //i=2
+// 2===2
+
+
+// data[i]30=data[i+1]2+1 =40
+
+// console.log(40)
+
+
+// const maxTokens = 5; // Maximum tokens in the bucket
+// let tokens = maxTokens; // Current tokens
+// const refillInterval = 1000; // 1 second
+// const refillRate = 1; // tokens added per interval
+
+// // Refill tokens periodically
+// setInterval(() => {
+//     if (tokens < maxTokens) {
+//         tokens += refillRate;
+//         if (tokens > maxTokens) tokens = maxTokens; // cap to maxTokens
+//         console.log(`Token added. Current tokens: ${tokens}`);
+//     }
+// }, refillInterval);
+
+// // Simulate incoming requests
+// function handleRequest() {
+//     if (tokens > 0) {
+//         tokens--; // consume a token
+//         console.log(`Token consumed. Remaining tokens: ${tokens}`);
+//         return true; // allow request
+//     } else {
+//         console.log("Request rejected. Bucket is empty.");
+//         return false; // reject request
+//     }
+// }
+
+// // Example: simulate requests every 300ms
+// setInterval(() => {
+//     handleRequest();
+// }, 300000);
+
+
+
+
+
+
+
 
 
 
@@ -57,6 +124,8 @@ instering(data, ind, add);
 // revivieone()
 
 // console.log(1 > 3)
+
+
 
 
 

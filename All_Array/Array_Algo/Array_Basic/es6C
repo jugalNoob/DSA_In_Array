@@ -1,0 +1,254 @@
+const obj = { a: 0 };
+
+// Nullish coalescing vs OR
+console.log(obj.a ?? 10); // 0
+console.log(obj.a || 10); // 10
+
+console.log(obj?.address?.amin)     // 3
+Syntax
+let result = value ?? defaultValue;
+
+Examples
+let a;
+console.log(a ?? 10); // 10 (undefined triggers default)
+
+let b = null;
+console.log(b ?? 'default'); // 'default'
+
+let c = 0;
+console.log(c ?? 5); // 0 (0 is not null/undefined)
+
+let d = '';
+console.log(d ?? 'empty'); // '' (empty string is not null/undefined)
+
+3️⃣ Combine Optional Chaining + Nullish Coalescing
+const user = { name: 'Jugal', address: { city: 'Delhi' } };
+
+console.log(user?.address?.city ?? 'Unknown'); // 'Delhi'
+console.log(user?.contact?.phone ?? 'Not available'); // 'Not available'
+
+
+const user = { name: '', age: 0 };
+
+console.log(user.name || 'Guest');  // 'Guest' ❌ unwanted
+console.log(user.name ?? 'Guest');  // '' ✅ correct
+
+console.log(user.age || 18);  // 18 ❌ unwanted
+console.log(user.age ?? 18);  // 0 ✅ correct
+
+
+
+
+const person = { age: 25, city: 'Mumbai' };
+
+const {...pers } = person;
+
+console.log(...Object.values(pers));
+
+console.log(...Object.keys(pers));
+// 25 'Mumbai'
+console.log(...Object.entries(pers));
+
+const { name, city, country = 'India' } = person; // default
+console.log(name, city, country);
+
+
+
+:: IMportant
+const obj = [
+  { names: 'jugal' },
+  { name: 'karna' }
+];
+
+const [first, second] = obj;
+
+console.log(first.names); // 'jugal'
+console.log(second.name); // 'karna'
+
+
+
+4:Nested destructuring with defaults:
+
+const person = { name: 'Jugal', address: { city: 'Delhi' } };
+const { address: { city, country = 'India' } } = person;
+console.log(city, country); // Delhi India
+
+
+5::Destructuring with renaming:
+
+const { country: cn = 'India' } = person;
+console.log(cn); // 'India'
+
+
+
+
+5🟡 Key Points for Interview:
+
+Default values in destructuring:
+
+Only used if the property is undefined.
+
+Not used if property exists as null or any other value.
+
+const { a = 10 } = { a: undefined }; // a = 10
+const { a = 10 } = { a: null };      // a = null
+
+
+
+::::::::::::::::::::: Array Important ::::::::::::::::::::::::
+
+| Feature                   | Description                |
+| ------------------------- | -------------------------- |
+| `[a, b] = array`          | Basic destructuring        |
+| `[first, , third]`        | Skip elements              |
+| `[x = default]`           | Default value if undefined |
+| `[x, y] = [y, x]`         | Swapping                   |
+| `[a, [b, c]] = nestedArr` | Nested destructuring       |
+
+
+🟢 Step-by-Step Explanation:
+
+Array destructuring:
+
+const [one, two, three, four] = Arrays;
+
+
+one → 'jugal' (first element)
+
+two → 'sharma' (second element)
+
+three → 'karan' (third element)
+
+four → 'anku' (fourth element)
+
+Console Output:
+
+console.log(one); // 'jugal'
+console.log(two); // 'sharma'
+console.log(three); // 'karan'
+console.log(four); // 'anku'
+
+⚡ Optional / Interview Variations
+1️⃣ Skipping elements:
+const [first, , third] = Arrays;
+console.log(first, third); // 'jugal' 'karan'
+
+2️⃣ Default values:
+const [a, b, c, d, e = 'default'] = Arrays;
+console.log(e); // 'default' (since 5th element doesn't exist)
+
+3️⃣ Swapping values:
+let x = 1, y = 2;
+[x, y] = [y, x];
+console.log(x, y); // 2 1
+
+4️⃣ Nested arrays:
+const arr = [1, [2, 3], 4];
+const [one, [two, three], four] = arr;
+console.log(two); // 2
+
+
+🟢 3️⃣ Using Rest in Array Destructuring
+const arr = [1, 2, 3, 4, 5];
+
+const [first, second, ...rest] = arr;
+
+console.log(first);  // 1
+console.log(second); // 2
+console.log(rest);   // [3, 4, 5]
+
+
+rest collects all remaining elements into a new array.
+
+::::::::::::::::::::::::::Spreaad Operation ::::::::::::::::::::
+
+Arrays
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+
+
+✅ Works with any iterable like arrays or strings:
+
+const str = "Hello";
+console.log([...str]); // ['H','e','l','l','o']
+
+
+Objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+
+const merged = { ...obj1, ...obj2 };
+console.log(merged); // { a:1, b:2, c:3, d:4 }
+
+
+⚠️ Note: Later properties overwrite earlier ones:
+
+const obj3 = { a: 10, b: 20 };
+const obj4 = { a: 30, c: 40 };
+
+const merged2 = { ...obj3, ...obj4 };
+console.log(merged2); // { a:30, b:20, c:40 }
+
+
+🟢 2️⃣ Function Arguments
+
+Spread can expand an array into function arguments:
+
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const nums = [10, 20, 30];
+
+console.log(sum(...nums)); // 60
+
+
+
+🟢 3️⃣ Copying Arrays and Objects
+
+Avoid mutation by making shallow copies:
+
+const arr = [1, 2, 3];
+const arrCopy = [...arr];
+arrCopy.push(4);
+
+console.log(arr);     // [1, 2, 3] ✅ original unchanged
+console.log(arrCopy); // [1, 2, 3, 4]
+
+🟢 3️⃣ Using Rest in Array Destructuring
+const arr = [1, 2, 3, 4, 5];
+
+const [first, second, ...rest] = arr;
+
+console.log(first);  // 1
+console.log(second); // 2
+console.log(rest);   // [3, 4, 5]
+
+
+rest collects all remaining elements into a new array.
+
+🟢 4️⃣ Using Rest in Object Destructuring
+const person = { name: 'Jugal', age: 25, city: 'Delhi' };
+
+const { name, ...others } = person;
+
+console.log(name);   // 'Jugal'
+console.log(others); // { age: 25, city: 'Delhi' }
+
+
+| Feature              | Rest Operator Use Case                                           |
+| -------------------- | ---------------------------------------------------------------- |
+| Function parameters  | `function(...args)` collects all remaining args                  |
+| Array destructuring  | `const [a, b, ...rest] = arr`                                    |
+| Object destructuring | `const {key, ...rest} = obj`                                     |
+| Must be last element | `function(a, ...rest)` ✅ valid, `function(...rest, a)` ❌ invalid |
+
+
+| Feature          | Spread `...`                                       | Rest `...`                                               |
+| ---------------- | -------------------------------------------------- | -------------------------------------------------------- |
+| Expands/collects | Expands an array/object into elements              | Collects remaining elements/properties into array/object |
+| Where used       | Right side (arrays, function call, object literal) | Left side (destructuring, function params)               |
+| Example          | `[...arr2]`                                        | `[a, b, ...rest] = arr1`                                 |

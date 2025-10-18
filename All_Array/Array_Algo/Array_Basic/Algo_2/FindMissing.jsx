@@ -1,3 +1,129 @@
+7️⃣ Interview Variants
+
+Single missing number → use sum formula or XOR.
+
+Multiple missing numbers → use set, sorting, or boolean array.
+
+Numbers not starting from 0 → adjust formula (min + max) or iterate from min → max.
+
+Large numbers → avoid sum overflow → prefer XOR or boolean array.
+
+8️⃣ Key Tips for DSA Interviews
+
+Always clarify range of numbers.
+
+Handle empty array or all numbers present.
+
+Explain time-space tradeoff: sum formula O(1) space, XOR O(1) space, Set O(n) space.
+
+Draw step-by-step table showing actual vs expected sum → helps in whiteboard interviews.
+
+
+
+
+1️⃣ Problem: Find Missing Number
+
+Definition: Given an array of n numbers ranging from 0 to n (or 1 to n), find the missing number.
+
+Example: [0,1,2,4] → Missing number is 3
+
+2️⃣ Approach 1: Sum Formula (Single Missing Number)
+
+Idea: Sum of numbers 0..n is n*(n+1)/2. Subtract sum of array → missing number.
+
+function findMissingNumber(num) {
+    let sum = 0;
+    for(let i=0;i<num.length;i++) sum += num[i];
+    const n = num.length;
+    return n*(n+1)/2 - sum;
+}
+
+console.log(findMissingNumber([0,1,2,4])); // 3
+
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+3️⃣ Approach 2: Loop with Step-by-Step Debug
+function findMissingNumber(data){
+    let actualSum = 0, expectedSum = 0;
+    for(let i=0;i<=data.length;i++){
+        expectedSum += i;
+        if(i<data.length) actualSum += data[i];
+    }
+    return expectedSum - actualSum;
+}
+
+console.log(findMissingNumber([0,1,2,4])); // 3
+
+
+Use Case: Explains process during interviews → trace sums clearly.
+
+4️⃣ Approach 3: XOR Method (Single Missing Number)
+
+Idea: XOR all array elements with 0..n → result is missing number.
+
+function findMissingNumberXOR(arr){
+    let xorArr = 0, xorFull = 0;
+    const n = arr.length;
+    for(let i=0;i<n;i++) xorArr ^= arr[i];
+    for(let i=0;i<=n;i++) xorFull ^= i;
+    return xorArr ^ xorFull;
+}
+
+console.log(findMissingNumberXOR([0,1,2,4])); // 3
+
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+5️⃣ Approach 4: Find Multiple Missing Numbers
+
+Idea: Use a Set for O(1) lookups and iterate from min → max.
+
+function findMissingNumbers(data){
+    if(data.length===0) return [];
+    const unique = new Set(data);
+    const missing = [];
+    const min = Math.min(...data);
+    const max = Math.max(...data);
+
+    for(let i=min;i<=max;i++){
+        if(!unique.has(i)) missing.push(i);
+    }
+    return missing;
+}
+
+console.log(findMissingNumbers([0,1,5])); // [2,3,4]
+
+
+Time Complexity: O(n + range)
+
+Space Complexity: O(n) → Set
+
+6️⃣ Approach 5: Sorting Method
+
+Sort array, then check for missing numbers.
+
+function findMissingNumbersSorted(arr){
+    arr.sort((a,b)=>a-b);
+    let missing = [];
+    for(let i=0;i<arr.length-1;i++){
+        for(let j=arr[i]+1;j<arr[i+1];j++){
+            missing.push(j);
+        }
+    }
+    return missing;
+}
+console.log(findMissingNumbersSorted([0,1,5])); // [2,3,4]
+
+
+Time Complexity: O(n log n)
+
+Space Complexity: O(1) if in-place
+
 
 
 //////// ------------->>>>   Find Missing Number -------------------->>>

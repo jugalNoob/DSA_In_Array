@@ -1,3 +1,106 @@
+1️⃣ Problem: Rotate Array
+
+Definition: Shift array elements to the left (or right) by a given number of steps.
+
+Input: [1, 2, 3, 4, 5], steps = 3
+
+Output (Left Rotation): [4, 5, 1, 2, 3]
+(In your code, you rotate left using arr.push(arr.shift()))
+
+2️⃣ Your Implementation (Step-by-Step)
+function rotateArray(arr, steps) {
+   for (let i = 0; i < steps; i++) {
+       arr.push(arr.shift()); // remove first element, add it to end
+   }
+   return arr;
+}
+
+let array = [1, 2, 3, 4, 5];
+let steps = 3;
+console.log(rotateArray(array, steps)); // [4,5,1,2,3]
+
+
+How it works:
+
+arr.shift() removes the first element (1) and returns it.
+
+arr.push() adds that element to the end.
+
+Repeat for the number of steps (3 times).
+
+3️⃣ Visual Example
+Step	Array after shift & push
+0	[1, 2, 3, 4, 5]
+1	[2, 3, 4, 5, 1]
+2	[3, 4, 5, 1, 2]
+3	[4, 5, 1, 2, 3]
+4️⃣ Optimized Approach (Without Looping steps Times)
+
+Idea: Use slicing → O(n) time, O(n) space.
+
+function rotateArrayOptimized(arr, steps) {
+    steps = steps % arr.length; // handle steps > length
+    return arr.slice(steps).concat(arr.slice(0, steps));
+}
+
+console.log(rotateArrayOptimized([1,2,3,4,5], 3)); // [4,5,1,2,3]
+
+5️⃣ Reverse Method (In-Place, O(1) Extra Space)
+
+Algorithm:
+
+Reverse first steps elements.
+
+Reverse remaining elements.
+
+Reverse entire array.
+
+function rotateArrayInPlace(arr, steps) {
+    const n = arr.length;
+    steps = steps % n;
+
+    function reverse(start, end) {
+        while(start < end){
+            [arr[start], arr[end]] = [arr[end], arr[start]];
+            start++; end--;
+        }
+    }
+
+    reverse(0, steps-1);
+    reverse(steps, n-1);
+    reverse(0, n-1);
+
+    return arr;
+}
+
+console.log(rotateArrayInPlace([1,2,3,4,5], 3)); // [4,5,1,2,3]
+
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+6️⃣ Interview Variants
+
+Right rotation instead of left.
+
+Rotate by steps larger than array length → use modulo.
+
+Rotate without extra space → reverse method.
+
+Rotate linked list → similar concept but with pointers.
+
+✅ Tips for Interviews:
+
+Always clarify left vs right rotation.
+
+Handle steps > array length with modulo.
+
+Know 3 methods: loop shift, slicing, reverse.
+
+Trace small examples step by step on a whiteboard.
+
+
 function rotateArray(arr, steps) {
    for (let i = 0; i < steps; i++) {
        arr.push(arr.shift());
