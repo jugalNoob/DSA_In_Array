@@ -1,3 +1,14 @@
+
+https://www.instagram.com/p/DPeAjXfjSAD/?img_index=20&igsh=NnF3MDA2bHJwenB4
+https://www.instagram.com/p/DO7uf8jE65r/
+https://www.instagram.com/p/DPeAjXfjSAD/?img_index=20&igsh=NnF3MDA2bHJwenB4
+
+
+https://www.instagram.com/p/DJzCyzPvvcm/ -->Promissi all-->>
+
+
+
+
 | Timestamp | Topic                        | Explanation                                        | Use Case                                | Time Complexity                   | Interview Tip                                      |
 | --------- | ---------------------------- | -------------------------------------------------- | --------------------------------------- | --------------------------------- | -------------------------------------------------- |
 | 0:05:35   | Loops in JS                  | For, while, for...of, for...in loops for iteration | Iterating over arrays, objects          | O(n)                              | Be ready to compare loop types and their use cases |

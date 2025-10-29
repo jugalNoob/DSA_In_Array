@@ -1,3 +1,36 @@
+let data1=[3 , 7 , 12,90 ]
+let data2=[4 , 10 , 11]
+let data3=[]
+
+let d1=0; let d2=0; let d3=0;
+while(d1<data1.length && d2<data2.length){
+    if(data1[d1] < data2[d2]){
+        data3[d3]=data1[d1]
+        d1++
+        console.warn(data3[d3])
+    }else{
+        data3[d3]=data2[d2]
+        d2++
+console.warn(data3[d3])
+    }    
+    d3++;
+}
+console.log(data3)
+
+
+
+
+while(d1<data1.length){
+    data3[d3]=data1[d1]
+    d1++
+    d3++
+}
+
+console.log(data3)
+
+
+
+
 // Visual diagrams to understand it deeper
 1️⃣ Using ES6 Spread Operator / concat()
 let data=[10, 20, 30, 40, 50]
@@ -32,7 +65,7 @@ for(let i=0; i<data1.length; i++){
 // console.log(data3)
 
 for(let i=0; i<data2.length; i++){
-
+ 
     
 console.log(data1.length + i);  
 

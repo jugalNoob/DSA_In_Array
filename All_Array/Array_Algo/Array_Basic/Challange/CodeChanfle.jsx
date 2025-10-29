@@ -1,10 +1,27 @@
+0::::Important :::::::::
+console.log([] == '')
+console.log([]==='')
+
+
+
+00:::importtant ::::::::
+function magic(){
+    return x=1,[],{};
+}
+
+console.log(magic())
+2::
+function magic(){
+    return x=1, a=20 , c=69
+}
+
+console.log(magic())
+
+
 
 Q Why is Both Object ?
 console.log(typeof {});      // object
 console.log(typeof []);      // object
-
-
-
 
 "use strict";
 "use strict";

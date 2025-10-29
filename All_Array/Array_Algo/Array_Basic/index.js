@@ -1,15 +1,16 @@
-let obj={
-    name:'jugal',
-    class:'10th',
+function one(){
 
-    greet:function(){
-        return [this.name , this.class]
-    }
+  let b=10
+  function two(){
+
+    console.log(b)
+
+  }
+
+  two()
 }
 
-console.log(obj.greet())
-
-// Bind call apply
+one()
 
 
 
@@ -17,9 +18,223 @@ console.log(obj.greet())
 
 
 
-// [2, 8] ✅
 
-// i = 3
+// 🧩 1️⃣ Basic String Practice Problems
+
+// ✅ Reverse a String
+// function reverseString(str) {
+//   return str.split('').reverse().join('');
+// }
+// console.log(reverseString('hello')); // "olleh"
+
+// ✅ Check if String is Palindrome
+// function isPalindrome(str) {
+//   const reversed = str.split('').reverse().join('');
+//   return str === reversed;
+// }
+// console.log(isPalindrome('madam')); // true
+
+// ✅ Count Characters in a String
+// function countChars(str) {
+//   const map = {};
+//   for (let char of str) {
+//     map[char] = (map[char] || 0) + 1;
+//   }
+//   return map;
+// }
+// console.log(countChars('hello')); // { h: 1, e: 1, l: 2, o: 1 }
+
+// ✅ Convert First Letter of Each Word to Uppercase (Title Case)
+// function toTitleCase(str) {
+//   return str
+//     .split(' ')
+//     .map(word => word[0].toUpperCase() + word.slice(1))
+//     .join(' ');
+// }
+// console.log(toTitleCase('hello world from jugal')); // "Hello World From Jugal"
+
+// 🧠 2️⃣ Intermediate String Problems
+// ✅ Check for Anagram
+// function isAnagram(str1, str2) {
+//   const normalize = s => s.toLowerCase().split('').sort().join('');
+//   return normalize(str1) === normalize(str2);
+// }
+// console.log(isAnagram('listen', 'silent')); // true
+
+// ✅ Find the First Non-Repeating Character
+// function firstNonRepeatingChar(str) {
+//   for (let char of str) {
+//     if (str.indexOf(char) === str.lastIndexOf(char)) {
+//       return char;
+//     }
+//   }
+//   return null;
+// }
+// console.log(firstNonRepeatingChar('aabbcddee')); // 'c'
+
+// ✅ Check if Two Strings are Rotations of Each Other
+// function isRotation(str1, str2) {
+//   return str1.length === str2.length && (str1 + str1).includes(str2);
+// }
+// console.log(isRotation('abcd', 'cdab')); // true
+
+// ✅ Find Character with Maximum Occurrence
+// function maxChar(str) {
+//   const map = {};
+//   let max = 0, maxChar = '';
+//   for (let char of str) {
+//     map[char] = (map[char] || 0) + 1;
+//     if (map[char] > max) {
+//       max = map[char];
+//       maxChar = char;
+//     }
+//   }
+//   return maxChar;
+// }
+// console.log(maxChar('javascript')); // 'a'
+
+// ✅ Count Words in a String
+// function countWords(str) {
+//   return str.trim().split(/\s+/).length;
+// }
+// console.log(countWords('  hello   world from  jugal  ')); // 4
+
+// ⚙️ 3️⃣ Advanced String Problems (DSA Level)
+// ✅ Longest Palindromic Substring
+// function longestPalindrome(s) {
+//   let res = '';
+//   for (let i = 0; i < s.length; i++) {
+//     let odd = expand(s, i, i);
+//     let even = expand(s, i, i + 1);
+//     res = odd.length > res.length ? odd : res;
+//     res = even.length > res.length ? even : res;
+//   }
+//   return res;
+// }
+
+// function expand(s, l, r) {
+//   while (l >= 0 && r < s.length && s[l] === s[r]) {
+//     l--; r++;
+//   }
+//   return s.slice(l + 1, r);
+// }
+
+// console.log(longestPalindrome('babad')); // "bab" or "aba"
+
+// ✅ Find All Permutations of a String (Backtracking)
+// function getPermutations(str) {
+//   if (str.length <= 1) return [str];
+//   let result = [];
+//   for (let i = 0; i < str.length; i++) {
+//     let char = str[i];
+//     let remaining = str.slice(0, i) + str.slice(i + 1);
+//     for (let perm of getPermutations(remaining)) {
+//       result.push(char + perm);
+//     }
+//   }
+//   return result;
+// }
+// console.log(getPermutations('abc'));
+
+// ✅ Find Longest Common Prefix (used in autocomplete/search)
+// function longestCommonPrefix(arr) {
+//   if (!arr.length) return '';
+//   let prefix = arr[0];
+//   for (let str of arr) {
+//     while (str.indexOf(prefix) !== 0) {
+//       prefix = prefix.slice(0, -1);
+//       if (!prefix) return '';
+//     }
+//   }
+//   return prefix;
+// }
+// console.log(longestCommonPrefix(['flower', 'flow', 'flight'])); // "fl"
+
+// ✅ Remove All Non-Alphabetic Characters
+// function cleanString(str) {
+//   return str.replace(/[^a-zA-Z]/g, '');
+// }
+// console.log(cleanString('he!!ll##o@@')); // "hello"
+
+// ✅ Check if a String Contains Only Unique Characters
+// function hasUniqueChars(str) {
+//   return new Set(str).size === str.length;
+// }
+// console.log(hasUniqueChars('abcde')); // true
+// console.log(hasUniqueChars('aabc')); // false
+
+//--->Repeat A string a given Number of Time 
+
+// function REpeastring (str ,num){
+//     if(num < 0)return '';
+
+//     return str.repeat(num)
+// }
+
+// console.log(REpeastring('abc' ,3))
+// ---> Remove Duploication characters from  a string 
+
+// function removeDuplication(str){
+//     return [...new Set(str)].join('')
+// }
+// console.log(removeDuplication('jjuugall'))
+
+
+/// string find longest word in a string 
+
+// function findLongestWord(str){
+//     const words=str.split(' ');
+//     console.log(words)
+//     let longest=0;
+
+//     for(let word of words){
+//         if(word.length > longest){
+//             longest=word.length
+//         }
+//     }
+
+//     return longest
+// }
+
+// console.log(findLongestWord('the jugal sharma world one two'))
+
+
+/// Count the Number of Voewls in a String  ------------------->>
+
+// function CountVowels(str){
+
+//     const vowls='aeiouAEIou'
+
+//     let count=0
+
+//     for(let char of str){
+//         if(vowls.includes(char)){
+//             console.log(count++)
+//             count++
+//         }
+//     }
+
+//     return count
+// }
+
+// console.log(CountVowels('hello world'))
+
+
+// --array revers ------->
+// let str='jugal'
+
+// for(let i=str.length-1; i>=0; i--){
+//     console.log(str[i])
+// }
+
+// array revers -------->>
+
+// let str='jugal'
+
+// console.log(str.split('').reverse().join(''))
+
+
+
 
 // Condition: 3 < 5 ✅
 

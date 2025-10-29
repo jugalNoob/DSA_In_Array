@@ -1,3 +1,7 @@
+https://www.instagram.com/p/DPeAjXfjSAD/?img_index=20&igsh=NnF3MDA2bHJwenB4
+
+
+
 // Visual diagrams to understand it deeper
 let count=0
 let data1=[1 , 2  , 2 , 3]
