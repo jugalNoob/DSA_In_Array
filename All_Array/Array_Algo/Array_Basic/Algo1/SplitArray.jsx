@@ -1,4 +1,20 @@
 
+let data = [10, 20, 30];
+let start = 0;
+let end = data.length - 1;
+let mid = Math.floor((start + end) / 2);
+
+for(let i=start; i<=mid; i++){
+     console.log(data[i] , 'start to mind');
+}
+
+
+
+for (let i = mid; i <= end; i++) {
+  console.log(data[i] , 'mind to end');
+}
+
+
 
 
 let data = [10, 20, 30, 40, 50];

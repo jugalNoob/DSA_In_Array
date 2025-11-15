@@ -61,6 +61,40 @@ Q Question answer
 
 
 
+
+let data = [10, 20, 30, 40, 50, 60];
+
+let end = data.length - 1; // last index
+let start=0
+let mind=Math.floor((start+end)/2)
+console.log(mind)
+
+// --- > delete mind value in array ------------------>>
+
+for(let i=mind; i<=data.length-1; i++){
+
+    data[i]=data[i+1]
+}
+
+data.length=data.length-1
+
+console.log(data)
+
+
+
+
+/// ---->>> Delete end value array elemnt 
+for (let i = end; i <= data.length - 1; i++) {
+  data[i] = data[i + 1]; // shift elements (though here nothing shifts)
+}
+
+data.length = data.length - 1; // reduce array size
+
+console.log(data); // [10, 20, 30, 40, 50]
+
+
+
+
 🟢 1. Delete Element at Given Index
 🟡 2. Delete First Occurrence of a Value
 🟠 3. Delete All Occurrences of a Value

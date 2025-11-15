@@ -1,0 +1,174 @@
+class BankOfIndia{
+
+  constructor(name , money ){
+    this.BankName=name
+    this.TotalMoney=money
+  }
+
+UserWithdraw(famout){
+
+  const user=this.TotalMoney-famout
+  //  this.TotalMoney -=famout;
+    console.log(user, 'this Total Money',this.TotalMoney);
+}
+
+SecondWithdraw(amount){ /// change in Object 
+     this.TotalMoney -= amount;
+    console.log(`✅ Withdrawn Rs.${amount} from ${this.BankName}`);
+    console.log(`💰 Remaining Balance: Rs.${this.TotalMoney}`);
+}
+
+
+}
+const BankInfo=new BankOfIndia('BankOfIndia' , 10000)
+
+BankInfo.UserWithdraw(1000)
+BankInfo.SecondWithdraw(1000)
+
+console.log(BankInfo)
+
+
+:::::::::::::: Inhtest::::::::::::::::::::::::
+
+// class WorldBank {
+//   static TotalMoney = 10000; // 🏦 Shared by all banks
+// }
+
+// class Usa extends WorldBank {
+//   static withdraw(amount) {
+//     WorldBank.TotalMoney -= amount;
+//   }
+// }
+
+// Usa.withdraw(1000);
+// console.log(WorldBank.TotalMoney); // ✅ 9000 (shared change)
+
+
+
+class WorldBank{
+
+  constructor(name , money ){
+    this.BankName=name
+this.TotalMoney=money
+  }
+
+
+SecondWithdraw(amount){ /// change in Object 
+     this.TotalMoney -= amount;
+    console.log(`✅ Withdrawn Rs.${amount} from ${this.BankName}`);
+    console.log(`💰 Remaining Balance: Rs.${this.TotalMoney}`);
+}
+
+
+}
+const BankInfo=new WorldBank('BankOfIndia' , 10000)
+
+// BankInfo.UserWithdraw(1000)
+BankInfo.SecondWithdraw(1000)
+console.log(BankInfo)
+
+// Use Client ------------------------->>
+
+// ✅ Subclass (inherits WorldBank)
+class Usa extends WorldBank {
+  constructor(name, money) {
+    super(name, money); // must call parent constructor first
+  }
+
+  UsaWithdraw(amout){
+    this.TotalMoney-=amout
+    console.log(this.BankName)
+
+  }
+}
+
+// ✅ Child class object
+const useuser = new Usa('USABank', 5000);
+useuser.UsaWithdraw(1000)
+console.log(useuser.TotalMoney);
+
+
+// 🔍 Step-by-Step Difference
+// 🟩 Line (1): const user = this.TotalMoney - famout;
+
+// This calculates a new value (10000 - 1000 = 9000)
+
+// But it does NOT change the actual class property (this.TotalMoney).
+
+// So after this line:
+
+// user = 9000
+
+// this.TotalMoney = 10000 (still unchanged)
+
+// This is just a temporary subtraction stored in a local variable.
+
+// 🟦 Line (2): this.TotalMoney -= famout;
+
+// This is short for:
+
+// this.TotalMoney = this.TotalMoney - famout;
+
+
+// ✅ It actually updates the property in your object.
+
+// So after this line:
+
+// this.TotalMoney becomes 9000
+
+// The object is mutated (changed permanently)
+
+// ⚙️ So in your code:
+// const user = this.TotalMoney - famout;
+// this.TotalMoney -= famout;
+// console.log(user, 'this Total Money', this.TotalMoney);
+
+
+// ✅ Output will be:
+
+// 9000 'this Total Money' 9000
+
+
+// Because both user (temporary variable) and this.TotalMoney (updated property) end up having the same value — but they were achieved differently.
+
+
+// | Expression                              | Meaning                            | Changes object? | Example Result                           |
+// | --------------------------------------- | ---------------------------------- | --------------- | ---------------------------------------- |
+// | `const user = this.TotalMoney - famout` | Calculates subtraction only        | ❌ No            | `user = 9000`, `this.TotalMoney = 10000` |
+// | `this.TotalMoney -= famout`             | Subtracts **and updates** property | ✅ Yes           | `this.TotalMoney = 9000`                 |
+
+
+class Manger{
+//   constructor(name ,age , salary){
+//     this.username=name
+//     this.age=age
+//     this.salary=salary
+  
+//   }
+
+//   info(){
+//     console.log(this.username + 'mainFunction' , this.age , this.salary)
+//   }
+
+// }
+
+// const ManBoos=new  Manger('world' ,45 , 10000)
+// console.log(ManBoos)
+
+// class stundey extends Manger {
+//   info() {
+//     super.info();
+//     this.salary -= 1000; // ✅ now it’s actually reduced
+//     console.log(this.username + ' secondFunction', this.salary);
+//   }
+// }
+
+
+// const io=new stundey('Yahoo baba::' , 45 , 5000)
+// const i=new stundey('Yahoo baba::' , 45 , 5000)
+
+// io.info()
+// i.info()
+// console.log(io)
+// console.log(i)
+

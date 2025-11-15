@@ -1,3 +1,27 @@
+
+
+
+
+// let data=[10 , 20 , 30 , 40 , -50]
+
+
+// for(let i=0; i<data.length; i++){
+
+//     if(data[i]>0){
+
+//       if(data[i] > 10){
+
+//         console.log(data[i])
+
+//       }
+//     }
+// }
+
+
+
+
+
+
 let data=[10 , 20 , 30 , 40 , 50]
 
 let start=0

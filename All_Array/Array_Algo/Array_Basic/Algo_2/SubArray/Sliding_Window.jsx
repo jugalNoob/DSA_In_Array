@@ -1,3 +1,74 @@
+| Feature      | Description                                                   |
+| ------------ | ------------------------------------------------------------- |
+| 🧠 Concept   | Reuse previous result instead of recalculating                |
+| ⚙️ Formula   | `currentSum = currentSum - old + new`                         |
+| ⏱️ Time      | O(n) instead of O(n × k)                                      |
+| 📦 Use Cases | Sliding data, analytics, finance, streaming, interviews       |
+| 💡 Key Idea  | Efficiently process *fixed-size windows* in arrays or streams |
+
+
+🧩 2️⃣ Where do we use this code?
+
+This pattern is used in many real-world and interview problems involving continuous data or “windows” of data.
+
+🧠 Example Use Cases:
+🧮 a) Analytics / Statistics
+
+Find:
+
+Average temperature of the last 7 days (rolling average)
+
+Maximum sales in any 3-day period
+
+CPU usage spikes in any 5-second window
+
+// e.g. moving average
+const avgLoad = maxSumSubarray(serverLoads, 5);
+
+🧾 b) Financial / Stock data
+
+Find:
+
+Maximum stock price gain in any 3-day window
+
+Best profit opportunity over a fixed period
+
+🎮 c) Game or Streaming apps
+
+Track:
+
+Max score in last N rounds
+
+Smooth moving average of player ping or FPS
+
+💻 d) Interview / DSA
+
+This pattern is one of the core DSA techniques:
+
+Maximum subarray sum of fixed size
+
+Longest substring / subarray under certain conditions
+
+Problems like:
+
+"Max consecutive 1s"
+
+"Minimum window substring"
+
+"Smallest subarray with sum ≥ target"
+
+
+| Method                     | Time Complexity | Example                       |
+| -------------------------- | --------------- | ----
+------------------------- |
+| Normal sum for each window | O(n × k)        | 1,000,000 × 10 = slow         |
+| Sliding window             | O(n)            | just 1,000,000 steps = fast ✅ |
+
+currentSum = currentSum - arr[i - windowSize] + arr[i];
+
+
+
+
 function maxSumSubarray(arr, windowSize) {
     if (arr.length < windowSize) {
         return null;
@@ -30,6 +101,14 @@ const arr = [4, 2, 1, 7, 8, 1, 2,];
 const windowSize = 3;
 console.log(maxSumSubarray(arr, windowSize)); // Output: 16 (sum of subarray [7, 8, 1])
 console.log(10 - 2 + 8 )
+
+(4 + 2 + 1)
+(2 + 1 + 7)
+(1 + 7 + 8)
+(7 + 8 + 1)
+(8 + 1 + 2)
+
+
 
 
 Detailed iterations:

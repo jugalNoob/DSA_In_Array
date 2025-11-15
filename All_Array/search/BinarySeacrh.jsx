@@ -200,3 +200,86 @@ mind = 4 in the second loop because the new middle of the range (3 + 5) / 2 = 4.
 
 start = 3
 mind  = 4
+
+//////////// ---------------------------------------->>
+
+let data=[10 , 20 , 30,40 , 50 , 60 , 70 , 80]
+
+let start=0
+
+let end=data.length-1
+
+let find=80
+
+console.log(end)
+
+let post=undefined;
+
+// console.log(5 >5)
+
+let count=0
+while(start <= end){
+
+
+    let mind=Math.floor((start+end)/2)
+
+    console.log(data[mind], 'this mind')
+
+    console.log( find , 'this is find ')
+
+
+   if(data[mind] === find){
+
+    post=data[mind]
+
+    break
+
+    }else if(data[mind] < find){
+
+        start=mind+1
+    }else{
+
+        end=mind-1
+    }
+}
+
+console.log(post , 'find search')
+
+
+
+
+
+
+
+??????????;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+let data = [10, 20, 30, 40, 50, 60, 70, 80];
+
+function binarySearch(arr, start, end, find) {
+  // Base condition → if start crosses end, element not found
+  if (start > end) {
+    return undefined;
+  }
+
+  // Find mid index
+  let mid = Math.floor((start + end) / 2);
+  console.log(arr[mid], 'this mid');
+
+  // Compare mid element with target
+  if (arr[mid] === find) {
+    return arr[mid]; // found value
+  } else if (arr[mid] < find) {
+    // Search in right half
+    return binarySearch(arr, mid + 1, end, find);
+  } else {
+    // Search in left half
+    return binarySearch(arr, start, mid - 1, find);
+  }
+}
+
+// Call the function
+let find = 80;
+let result = binarySearch(data, 0, data.length - 1, find);
+
+console.log(result, 'find search');

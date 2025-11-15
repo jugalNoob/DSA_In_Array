@@ -1,4 +1,10 @@
 
+// // | Question                   | Answer                                                                                 |
+// // | -------------------------- | -------------------------------------------------------------------------------------- |
+// // | Does it run right to left? | ❌ No                                                                                   |
+// // | Does it run left to right? | ✅ Yes                                                                                  |
+// // | Why?                       | Because `for (let i = 0; i < data.length; i++)` starts from index 0 and increments i++ |
+
  
  ::::::::::::::::::::::::Anagram ...........
 

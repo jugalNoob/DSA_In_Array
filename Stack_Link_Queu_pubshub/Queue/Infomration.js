@@ -1,7 +1,7 @@
 | Type             | Key Feature                       | Example Use Case                |
 | ---------------- | --------------------------------- | ------------------------------- |
 | Simple Queue     | FIFO                              | Task queue                      |
-| Circular Queue   | Space-efficient reuse             | I/O buffers                     |
+| Circula     r Queue   | Space-efficient reuse        | I/O buffers                     |
 | Priority Queue   | Ordered by priority               | Dijkstra's algorithm            |
 | Deque            | Insertion/removal from both ends  | Palindrome, Sliding Window      |
 | Monotonic Queue  | Ordered increasing/decreasing     | Max in window problems          |

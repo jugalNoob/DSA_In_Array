@@ -1,4 +1,12 @@
 
+
+// // | Question                   | Answer                                                                                 |
+// // | -------------------------- | -------------------------------------------------------------------------------------- |
+// // | Does it run right to left? | ❌ No                                                                                   |
+// // | Does it run left to right? | ✅ Yes                                                                                  |
+// // | Why?                       | Because `for (let i = 0; i < data.length; i++)` starts from index 0 and increments i++ |
+
+
 🔹 What are Duplicates in an Array?
 
 Duplicates mean the same element appears more than once in the array.
@@ -114,26 +122,22 @@ function removeDuplicates(nums) { ///RemoveDuplication Simple
 // Space Complexity - O(1)
 // console.log(removeDuplicates([1, 1, 2]));
 
-
-function removeDuplicatesNew(nums) {  /// second remove deUplication 
-
-  debugger;
-  if (nums.length === 0) return 0;
+function duplicates(data) {
   let i = 0;
-
-  for (let j = 1; j < nums.length; j++) {
-    if (nums[i] !== nums[j]) {
+  for (let j = 1; j < data.length; j++) {
+    if (data[j] !== data[i]) {
       i++;
-      nums[i] = nums[j];
+      data[i] = data[j];
     }
   }
-
   return i + 1;
 }
-// Time Complexity - O(n)
-// Space Complexity - O(1)
-console.log(removeDuplicatesNew([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
 
+let data = [0 , 1 , 1 , 2 , 2 , 3 , 3 , 4  , 5]; ///use A Sort Array 
+console.log(duplicates(data)); // 5
+
+let arr = [0, 1, 1, 2, 2, 2];
+console.log(duplicates(arr)); // ✅ 3 (unique: 0,1,2)
 
 
 👉 That means:

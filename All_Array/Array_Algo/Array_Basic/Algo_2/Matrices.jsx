@@ -106,3 +106,31 @@ Trace row and column indices on small examples.
 Use nested loops for simplicity, then optimize if needed.
 
 Be ready to extend iteration logic to solve problems like sum, search, or rotation.
+
+
+
+
+
+
+::::::::: -------><><>
+function rotateMatrix90(matrix) {
+   const n = matrix.length;
+   // Transpose the matrix
+   for (let i = 0; i < n; i++) {
+       for (let j = i; j < n; j++) {
+           [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+       }
+   }
+   // Reverse each row
+   for (let i = 0; i < n; i++) {
+       matrix[i].reverse();
+   }
+   return matrix;
+}
+let matrix = [
+   [1, 2, 3],
+   [4, 5, 6],
+   [7, 8, 9]
+];
+console.log(rotateMatrix90(matrix));
+

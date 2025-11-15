@@ -1,3 +1,33 @@
+
+| Step | start | end | data[start] | data[end] | Result           |
+| ---- | ----- | --- | ----------- | --------- | ---------------- |
+| 1    | 0     | 4   | 'l'         | 'l'       | match → recurse  |
+| 2    | 1     | 3   | 'e'         | 'e'       | match → recurse  |
+| 3    | 2     | 2   | 'v'         | 'v'       | base case → true |
+
+
+
+function PalDrom(data, start = 0, end = data.length - 1) {
+  // Base case: all characters checked
+  if (start >= end) return true;
+
+  // If mismatch found
+  if (data[start] !== data[end]) return false;
+
+  // Move inward
+  return PalDrom(data, start + 1, end - 1);
+}
+
+let str = "level";
+console.log(PalDrom(str)); // ✅ true
+console.log(PalDrom("level"));   // true
+console.log(PalDrom("madam"));   // true
+console.log(PalDrom("hello"));   // false
+console.log(PalDrom("a"));       // true
+console.log(PalDrom(""));        // true
+
+
+
 A palindrome is a word, number, phrase, or sequence that reads the 
 same forward and backward.
 
@@ -33,7 +63,7 @@ Phrases (ignoring spaces/punctuation):
 ❓ Can you solve it without converting number to string? (Advanced)
 
 ❓ How will you handle Unicode / emojis?
-
+s
 ❓ What’s the time & space complexity of your approach?
 
 

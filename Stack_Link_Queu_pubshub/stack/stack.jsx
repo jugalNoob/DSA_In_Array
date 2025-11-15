@@ -1,46 +1,46 @@
 1::What is stack?
 
-// let data=[];
-// let cureent=data.length;
-// let max=5;
-// //
-// function push(newel){
-//     if(cureent > max){
-//         console.log("mother fucker" , newel)
-// }else{
-//     data[cureent]=newel;
-//     cureent+=1
+let data=[];
+let cureent=data.length;
+let max=5;
+//
+function push(newel){
+    if(cureent > max){
+        console.log("mother fucker" , newel)
+}else{
+    data[cureent]=newel;
+    cureent+=1
 
-// }
-// }
-// //
-// function pop(){
+}
+}
+//
+function pop(){
 
-//     if(cureent >0){
+    if(cureent >0){
 
-//         cureent-=1;
+        cureent-=1;
 
-//         data.length=cureent
+        data.length=cureent
 
-//     }else{
+    }else{
 
-//         alert("stack is arlready empty")
-//     }
-// }
-// push(20)
-// push(30)
-// push(40)
-// push(50)
-// push(60)
-// push(70)
-// push(80)
-// ///
-// pop()
-// ///
-// pop()
-// console.log(data)
+        alert("stack is arlready empty")
+    }
+}
+push(20)
+push(30)
+push(40)
+push(50)
+push(60)
+push(70)
+push(80)
+///
+pop()
+///
+pop()
+console.log(data)
 
-///Button use inpute and outpute
+/Button use inpute and outpute
 
 
 let data=[];

@@ -390,10 +390,6 @@ while(start <= end){
 
     let mind=Math.floor((start+end) / 2)
 
-    //console.log(mind) // 2 index 
-
-  //  console.log(data[mind]) //  30 elements 
-
     if(data[mind] === find){ // data[30] === 30
         
         poist=mind

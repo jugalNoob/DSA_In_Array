@@ -1,3 +1,10 @@
+
+// // | Question                   | Answer                                                                                 |
+// // | -------------------------- | -------------------------------------------------------------------------------------- |
+// // | Does it run right to left? | ❌ No                                                                                   |
+// // | Does it run left to right? | ✅ Yes                                                                                  |
+// // | Why?                       | Because `for (let i = 0; i < data.length; i++)` starts from index 0 and increments i++ |
+
 let data1=[3 , 7 , 12,90 ]
 let data2=[4 , 10 , 11]
 let data3=[]

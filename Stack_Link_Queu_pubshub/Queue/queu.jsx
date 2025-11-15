@@ -1,3 +1,84 @@
+let data=[]
+let Current=data.length
+
+function Queue(value)
+{
+    data[Current]=value
+Current++
+}
+
+function DeleteQ(){
+    for(let i=0; i<data.length; i++){
+        // console.log(data)
+    data[i]=data[i+1]
+    }
+
+}
+
+
+
+function display(){
+    for(let i=0; i<data.length; i++){
+        console.log(data[i])
+    }
+}
+
+
+
+Queue(10)
+Queue(20)
+Queue(30)
+Queue(40)
+DeleteQ()
+
+display()
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+let data = [];
+let front = 0;   // remove from here
+let rear = 0;    // add from here
+
+function Addqueu(value) {
+    data[rear] = value;
+    rear++;
+}
+
+function delele() {
+    if (front === rear) {
+        console.log("Queue is empty");
+        return;
+    }
+    const removed = data[front];
+    data[front] = undefined; // optional
+    front++;
+    console.log(removed, "removed from queue");
+}
+
+function display() {
+    if (front === rear) {
+        console.log("Queue is empty");
+        return;
+    }
+    console.log("Current Queue:");
+    for (let i = front; i < rear; i++) {
+        console.log(data[i]);
+    }
+}
+
+// Example
+Addqueu(10);
+Addqueu(20);
+Addqueu(30);
+Addqueu(40);
+Addqueu(50);
+Addqueu(60);
+delele();
+delele();
+display();
+
+
 
 Q::what is queue?
 

@@ -272,6 +272,36 @@ end--     → 1 (loop ends)
 
 
 
+
+
+
+
+///////////// ---------------------------->>
+
+
+
+function TwoAll(data ,start=0, end=data.length-1){
+
+
+    if(start > end) return data
+
+
+    let temp=data[start]
+    data[start]=data[end]
+    data[end]=temp
+
+ return   TwoAll(data , start+1 , end -1)
+
+
+}
+
+
+let data = [100, 80, 90, 70, 60, 20, 10];
+console.log(TwoAll(data)); // [10, 20, 60, 70, 90, 80, 100]
+
+
+
+
 console.log(data)
 
 
