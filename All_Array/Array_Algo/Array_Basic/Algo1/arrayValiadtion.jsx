@@ -31,3 +31,24 @@ for(let i=0; i<data.length; i++){ // remove negivate value
         
 }
 
+
+let data = ['jugal'];
+
+function Hostings() {
+
+  // ADVANCED VALIDATIONS
+  if (
+    Array.isArray(data) &&                     // must be array
+    data instanceof Array &&                   // same check, extra safety if cross-frame
+    typeof data === "object" &&                // arrays are objects
+    data.length > 0 &&                         // cannot be empty
+    data.every(item => typeof item === "string") &&  // validate type inside array
+    !data.some(item => item === null || item === undefined || Number.isNaN(item)) // check invalid values
+  ) {
+    console.log(data, "i am array");
+  } else {
+    console.log("check your array");
+  }
+}
+
+Hostings();
