@@ -1,27 +1,15 @@
+let data = [0, 4, 5, 9];
 
-let prices = [7, 1, 5, 3, 6, 4];
+for(let i=0; i<data.length-1; i++){
 
-let maxProfit = 0;
-
-
-for(let i=0; i<prices.length; i++){
-// console.log(prices[i])
-
-for(let j=i+1; j<prices.length; j++){
-
-
-  if(  prices[j]-prices[i] > maxProfit){
-    maxProfit= prices[j]-prices[i]
-  }
+  let temp=data[i]
+  
+  data[i]=data[i+1]
+  data[i+1]=temp
 }
 
-}
+console.log(data)
 
-console.log("Max Profit:", maxProfit);
-
-
-console.log(1 -7 > 0 )
-console.log(5 - 1)
 
 // 📌 What this code is doing?
 // 🔁 You're using two loops to check every possible buy & sell pair

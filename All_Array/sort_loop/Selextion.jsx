@@ -1,156 +1,127 @@
-let data = [10 , 20 , 9 , 2];
+You're running Selection Sort.
+Let me explain your exact code step-by-step using your array:
 
-for(let i = 0; i < data.length; i++) {
-    let minId = i;
-    // console.log(`\n🔎 Pass ${i + 1}, start from index ${i}, current array:`, data);
+let data = [50, 40, 30, 20]
 
-    // find smallest in the rest
-    for (let j = i + 1; j < data.length; j++) {
+🔍 Understanding the variables
+
+i → selects the current position where the smallest number should go
+
+mind → (short for "minimum index") keeps track of the smallest value found in the remaining array
+
+j → scans the rest of the array to find the smallest value
+
+After j-loop ends → you swap data[i] ↔ data[mind]
+
+This is exactly how Selection Sort works.
+
+✅ Step-by-step dry run
+
+let data=[50 , 40 , 30 , 20]
 
 
+debugger;
+for(let i=0; i<data.length; i++){
 
-      // console.log(`   Compare data[${j}] = ${data[j]} with current min data[${minId}] = ${data[minId]}`);
+  let mind=i
 
-      if (data[j] < data[minId]) { 
+  for(let j=i+1; j<data.length; j++){
 
-  
-        
-        // console.log(`   👉 New minimum found: ${data[j]} at index ${j}`);
-        minId = j;
-      }
+    if(data[mind]  > data[j]){
+
+      mind=j
     }
-
-    // swap
-    // if (minId !== i) {
-    //   console.log(`   🔄 Swap data[${i}] = ${data[i]} with data[${minId}] = ${data[minId]}`);
-    // }
-
-
-
-let temp = data[minId];   // temp = data[3] = 2
-data[minId] = data[i];    // data[3] = data[0] = 10
-data[i] = temp;           // data[0] = temp = 2
-
-//[2 , 20 , 9 , 10]
-
-
-    // console.log(`   ✅ After pass ${i + 1}:`, data);
   }
 
+  let temp=data[mind]
+  data[mind]=data[i]
+  data[i]=temp
+}
+
+console.log(data)
 
 
-console.log("\n🎯 Final Sorted Array:", data);
 
 
+Initial Array
+[50, 40, 30, 20]
 
+⭐ i = 0
 
-// first Time Loop Run ------------------------->>>
-//[10 , 20 , 9 , 2]
+mind = 0 → data[mind] = 50
+
+Now j loop runs:
 
 j = 1
 
-// Compare: data[1] = 20 with data[minId=0] = 10
-
-Is 20 < 10? ❌ → No update
-
-minId stays 0.
+compare 50 > 40 → YES
+→ mind = 1
 
 j = 2
 
-Compare: data[2] = 9 with data[minId=0] = 10
-
-Is 9 < 10? ✅ → Yes
-
-So we run:
-
-
- minId [2]=j [2] // swap in mind j value 2
-
-minId = j;   // minId = 2
-Now minId = 2 (pointing to value 9).
+compare 40 > 30 → YES
+→ mind = 2
 
 j = 3
 
-Compare: data[3] = 2 with data[minId=2] = 9
+compare 30 > 20 → YES
+→ mind = 3
 
-Is 2 < 9? ✅ → Yes
+👉 Smallest value found = 20 at index 3
 
-So:
-
-minId = j;   // minId = 3
-
-
-Now minId = 3 (pointing to value elemnt of array 2).
+Swap:
+swap data[0] and data[3]
 
 
-let temp = data[minId];   // temp = data[3] = 2
-data[minId] = data[i];    // data[3] = data[0] = 10
-data[i] = temp;           // data[0] = temp = 2
+Array becomes:
 
+[20, 40, 30, 50]
 
+⭐ i = 1
 
-
-second Pass  start Loop   -------------------------->>
-
-Array after first pass
-[2, 20, 9, 10]
-
-
-i = 1 → second pass, start from index 1
-minId = i = 1 → value = 20
-
-Inner loop of second pass
+mind = 1 → data[mind] = 40
 
 j = 2
-Compare: data[2] = 9 with data[minId = 1] = 20
-Is 9 < 20? ✅ → Yes
 
-minId = j;  // minId = 2
-
-
-Now minId = 2 (value = 9)
+40 > 30 → YES
+→ mind = 2
 
 j = 3
-Compare: data[3] = 10 with data[minId = 2] = 9
-Is 10 < 9? ❌ → No update
-minId stays 2 (value = 9)
 
-Swap at the end of second pass
-let temp = data[minId];   // temp = data[2] = 9
-data[minId] = data[i];    // data[2] = data[1] = 20
-data[i] = temp;           // data[1] = 9
+30 > 50 → NO
+→ mind stays 2
+
+Swap:
+swap data[1] and data[2]
 
 
-Array after swap:
+Array becomes:
 
-[2, 9, 20, 10]
+[20, 30, 40, 50]
 
+⭐ i = 2
 
-third loop::::::::::::::::::::----#>>>
-of Pass 3
-Array before Pass 3
-[2, 9, 20, 10]
-
-
-i = 2 → start 
-
-minId = i = 2 → value = 20
-
-Inner loop runs j = i + 1 = 3 to end of array
-
-Inner loop
+mind = 2 → value = 40
 
 j = 3
-Compare: data[3] = 10 with data[minId = 2] = 20
-10 < 20? ✅ Yes → update minId = 3
 
-Now minId points to value 10 at index 3
+40 > 50 → NO
 
+mind stays same → points to 40
 
+Swap:
 
-let temp = data[minId]; // temp = data[3] = 10
+Numbers are same position, so no effect.
 
-data[minId] = data[i]; // data[3] = data[2] = 20
+Array remains:
 
-data[i] = temp; // data[2] = temp = 10
+[20, 30, 40, 50]
 
+⭐ i = 3
+
+Last element left → already sorted → loop ends.
+
+🎉 FINAL OUTPUT
+[20, 30, 40, 50]
+
+🧠 What is Selection Sort doing?
