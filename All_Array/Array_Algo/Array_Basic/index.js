@@ -1,14 +1,5 @@
-let data = [0, 4, 5, 9];
 
-for(let i=0; i<data.length-1; i++){
 
-  let temp=data[i]
-  
-  data[i]=data[i+1]
-  data[i+1]=temp
-}
-
-console.log(data)
 
 
 // 📌 What this code is doing?
