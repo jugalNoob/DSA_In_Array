@@ -86,6 +86,8 @@ function maxSumSubarray(arr, windowSize) {
     
         currentSum = currentSum - arr[i - windowSize] + arr[i];
 
+    //first conseol.log(7 - 4 + 7)
+
         //step 7 -4+7
         //step 10 -2+8
         //step 16 -1+1
@@ -102,13 +104,15 @@ const windowSize = 3;
 console.log(maxSumSubarray(arr, windowSize)); // Output: 16 (sum of subarray [7, 8, 1])
 console.log(10 - 2 + 8 )
 
-(4 + 2 + 1)
-(2 + 1 + 7)
-(1 + 7 + 8)
-(7 + 8 + 1)
-(8 + 1 + 2)
+console.log(7 - 4 + 7)
 
-
+c 
+| Window  | Calculation  | currentSum | maxSum |
+| ------- | ------------ | ---------- | ------ |
+| [2,1,7] | `7 - 4 + 7`  | 10         | 10     |
+| [1,7,8] | `10 - 2 + 8` | 16         | 16     |
+| [7,8,1] | `16 - 1 + 1` | 16         | 16     |
+| [8,1,2] | `16 - 7 + 2` | 11         | 16     |
 
 
 Detailed iterations:

@@ -1,3 +1,287 @@
+let data='jugaljs'
+
+let obj={}
+for(let i=0; i<data.length; i++){
+
+    let str=data[i]
+
+    if(obj[str]){
+        obj[str]++
+    }else{
+        obj[str]=1
+    }
+}
+
+console.log(obj)
+
+
+
+
+// // First  -------- Target is 5
+// while(0 < 5)
+
+// let sum=data[1]+data[4]
+
+
+// if(5 === target 5){
+//     return [data[start] ,data[end]]
+// }
+
+// // second  -------- Target is 4
+
+// while(0 < 4)
+
+// let sum=data[1]+data[4]
+
+
+// if(5 ===  4){
+//     return [data[start] ,data[end]]
+// }else if(5 > 4){
+
+//     start ++
+// }else{
+//     end --
+// }
+
+
+// while(1 < 4)
+
+//     let sum=data[2]+data[4]
+
+
+
+//     if(2  === 4){
+
+//     }
+
+
+//if find greathen mind so run left 
+//if find less then mind so run right side
+
+// mind value 3
+// if 10 > 30  so run left side 
+
+
+
+
+
+
+// function capitalize(str) {
+//   if (!str) return str
+//   return str[0].toUpperCase() + str.slice(1)
+// }
+
+// console.log(capitalize(data))
+
+
+
+
+
+ 
+
+
+// function Outer() {
+//   let x = 0;
+
+//   setInterval(() => {
+//     console.log(x++);
+//   }, 2000);
+// }
+
+// Outer();
+
+
+
+
+// function fetchUser(id) {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       id ? res({ id, name: "Jugal" }) : rej("No ID");
+//     }, 1000);
+//   });
+// }
+
+// async function controller() {
+//   try {
+//     const user = await fetchUser(1);
+//     console.log(user);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+
+
+
+
+
+
+
+
+// console.log(fast)
+
+// debugger;
+// for(let i=0; i<data.length; i++){
+
+//     if(data[i] > max){
+//     console.log(count++)
+//     if(count > 1){
+//     max=data[i]
+//     break;
+//         }
+//     }
+// }
+// console.log(max)
+
+// const data=[40, 10 , 40 ]
+
+// console.log(data.sort((a, b) => a - b))
+
+
+// let data=[10 , 20 , 30 , 40]
+// let add='jugal'
+// let ind=2
+
+// debugger;
+// for(let i=data.length-1; i>=ind; i--){
+    
+//     data[i+1]=data[i]
+// }
+
+// data[ind]=add
+// console.log(data)
+
+
+
+
+
+// let datase=data.reduce((sum  , e)=>sum+(e.roll > 0 ? e.roll : 0) , 0)
+
+
+// // let data=[
+// // [1 , 2 , 3],
+// // [4 , 5 , 6]
+// // ]
+
+// // data[0].push(7);
+
+// // console.log(data);
+
+// // deep show copy in array -------------------------->>
+// // let data1=[
+// //     [1 , 2 , 3],
+// //     [1 , 2 , 2]
+// // ]
+// // let newdata=[[...data1[0]] , [...data1[1]]]
+// // const y=data1.map((item)=>[...item])
+// // newdata[0].push(10)
+// // console.log(data1)
+// // console.log(newdata)
+
+
+// // let result=true ? false ? 'A' : 'B' : 'C'
+// // //false ? 'a' : 'B
+// // //true ? 'b' : 'c'
+// // console.log(result)
+
+
+
+
+// let data = [
+//   { name: 'jugal', roll: 44, class: '10th', number: 45 },
+//   { name: 'karan', roll: 45, class: '12th', number: 69 },
+//   { name: undefined, roll: 45, class: '12th', number: 69 },
+//   { name: null, roll: -45, class: '12th', number: 69 }
+// ]
+
+// let reducer = data.map(elem => ({
+//   name: elem.name,
+//   roll: elem.roll
+// }));
+
+// console.log(reducer);
+
+
+// let datase=data.reduce((sum  , e)=>sum+(e.roll > 0 ? e.roll : 0) , 0)
+// console.log(datase)
+ 
+
+// // let  reduser=data.reduce((sum ,e) =>sum+ (e.roll > 0 ?  e.roll : 0),0)
+// // console.log(reduser)
+
+
+
+
+
+
+
+
+
+
+
+// ].reduce((alamit, elem) => {
+//   if (elem.roll > 0) {
+//     return alamit + elem.roll;
+//   }
+//   return alamit; // ✅ MUST return accumulator
+// }, 0);
+
+
+// const totalRoll = data.reduce(
+//   (sum, e) => sum + (e.roll > 0 ? e.roll : 0),
+//   0
+// );
+
+// console.log(totalRoll);
+
+
+// let dataa=18 == 17 ?  'a' : 'b' : 'c'
+
+// ].filter(elem =>
+//   typeof elem.name === 'string' &&
+//   typeof elem.roll === 'number' &&
+//   elem.roll > 0
+// ).map((elem=>({myfirendname:elem.name})))
+
+
+
+
+// console.log(null + false + true - false + true , 'this answer 2') 
+
+// Step 1️⃣ Expression Evaluation
+
+// As we already calculated:
+
+// null + false + true - false + true
+// → 0 + 0 + 1 - 0 + 1
+// → 2
+
+
+
+// let data=[1 , 2 , 3]
+
+// let result=[]
+
+// for(let i=0; i<data.length; i++){
+
+//     for(let j=0; j<data.length; j++){
+
+//         console.log(`idata ${data[i]}  jdata ${data[j]}`)
+
+//         if(data[i] !== data[j]){
+
+//          result.push(data[i])
+//         }
+//     }
+
+// }
+
+// console.log(result)
+
+
+
+
+
+
 
 
 

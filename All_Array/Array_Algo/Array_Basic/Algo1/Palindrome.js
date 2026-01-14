@@ -306,3 +306,25 @@ console.log(data , "not reverse")
 let pal=data.split("").reverse().join("")  
 console.log(data  == pal ? 'reverse' : 'reverse not')
 //console.log(data.split("").reverse().join("").split("").sort().join("")  , "reverse and sort")
+
+
+/////////// --------------------------->>Paries Match ----------------------->>
+
+
+
+
+let arr = [1, 2, 3, 2, 1]
+
+let start = 0
+let end = arr.length - 1
+
+while (start < end) {
+    if (arr[start] !== arr[end]) {
+        console.log("Not Palindrome")
+        return
+    }
+    start++
+    end--
+}
+
+console.log("Palindrome")

@@ -1,4 +1,19 @@
+function findMissingNumber(num) {
 
+    debugger;
+
+    let missing = num.length;
+    console.log(missing)
+
+    for (let i = 0; i < num.length; i++) {
+        missing += i - num[i];
+    }
+
+    return missing;
+}
+
+
+console.log(findMissingNumber([0,1,3])); // 2
 
 function findMissingNumber(num) {
     debugger;

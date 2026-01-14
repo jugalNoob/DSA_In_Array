@@ -44,29 +44,44 @@ console.log("\n🔚 Result:", twoSum(nums, target));
 
 
 2:::Two pointer
-function TwoPointer(data, target) {
-  let start = 0;
-  let end = data.length - 1;
 
-  while (start < end) {
-    const sum = data[start] + data[end];
+function TwoPoin(data, target) {
+    let start = 0
+    let end = data.length - 1
 
-    if (sum === target) {
-      return [data[start], data[end]];  // pair found
-    } else if (sum < target) {
-      start++;   // need a bigger sum
-    } else {
-      end--;     // need a smaller sum
+    while (start < end) {
+        const sum = data[start] + data[end]
+        console.log(sum)
+
+        if (sum === target) {
+            return [data[start], data[end]]
+        } 
+        else if (sum > target) {
+            end--        // ✅ FIXED
+        } 
+        else {
+            start++      // ✅ FIXED
+        }
     }
-  }
-
-  return null;  // no pair found
+    return null
 }
 
-// Example usage
-const arr = [2, 7, 11, 15];
-const target = 9;
-console.log(twoSum(arr, target)); // Output: [2, 7]
+let data = [1, 2, 3, 4]
+let target = 5
+
+console.log(TwoPoin(data, target))
+
+
+// 6️⃣ Visual Pointer Movement (Easy Memory Trick)
+// [ 1, 2, 3, 4 ]
+//   ↑           ↑
+//  start       end
+
+
+// Sum too big? → move end left
+
+// Sum too small? → move start right
+
 
 
 Perfect! Let’s go step by step and see how your TwoPointer

@@ -1,3 +1,32 @@
+let data=[10 , 20 , 30 , 40 , 50 , 60 , 70 , 80]
+let max=data[0]
+let count=0
+for(let i=0; i<data.length; i++){
+    if(data[i] > max){
+    console.log(count++)
+    if(count > 1){
+    max=data[i]
+    break;
+        }
+    }
+}
+console.log(max)
+
+
+
+let data = [10, 20, 30, 40, 50, 60]
+let max = data[1]
+
+
+for (let i = 0; i < data.length -2; i++) { 
+    console.log('i:', i, 'data[i]:', data[i], 'max before:', max)
+    if (data[i] > max) {
+        max = data[i]
+    }
+    console.log('max after:', max)
+}
+
+console.log('FINAL:', max)
 
 
 

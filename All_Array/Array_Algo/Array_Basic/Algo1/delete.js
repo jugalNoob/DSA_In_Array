@@ -92,6 +92,42 @@ data.length = data.length - 1; // reduce array size
 
 console.log(data); // [10, 20, 30, 40, 50]
 
+🧠 Direction Explanation
+Memory / Index view
+Index:  0   1   2   3   4
+Before: [10, 20, 30, 40, 50]
+                 ↑
+             shift LEFT
+
+
+Each assignment:
+
+data[i] = data[i + 1]
+
+
+means:
+
+copy from RIGHT ➜ paste to LEFT
+
+
+👉 Right → Left SHIFT
+
+❌ NOT swap
+✔ overwrite
+
+
+
+
+🔥 Visual Step-by-Step
+Delete index = 1
+Initial: [10, 20, 30, 40, 50]
+
+i = 1 → data[1] = data[2] → [10, 30, 30, 40, 50]
+i = 2 → data[2] = data[3] → [10, 30, 40, 40, 50]
+i = 3 → data[3] = data[4] → [10, 30, 40, 50, 50]
+
+Trim length → [10, 30, 40, 50]
+
 
 
 

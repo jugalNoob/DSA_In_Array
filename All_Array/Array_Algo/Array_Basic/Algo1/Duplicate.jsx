@@ -1,4 +1,31 @@
 
+// Check duplicate Array  Remove ------>>>>
+let data = [10, 20, 10 , 20 , 30];
+let obj={}
+let unqie=[]
+let duplciate=[]
+
+for(let i=0; i<data.length; i++){
+
+ 
+
+    let orginal=data[i]
+
+    if(!obj[orginal]){
+        obj[orginal]=true
+        unqie.push(orginal)
+    }else{
+
+     duplciate.push(orginal , 'check duplicate')
+    }
+}
+console.log(obj)
+console.log(unqie)
+console.log(duplciate)
+
+
+
+
 
 // // | Question                   | Answer                                                                                 |
 // // | -------------------------- | -------------------------------------------------------------------------------------- |
@@ -121,23 +148,36 @@ function removeDuplicates(nums) { ///RemoveDuplication Simple
 // Time Complexity - O(n)
 // Space Complexity - O(1)
 // console.log(removeDuplicates([1, 1, 2]));
+function Duplicar(data) {
 
-function duplicates(data) {
-  let i = 0;
-  for (let j = 1; j < data.length; j++) {
-    if (data[j] !== data[i]) {
-      i++;
-      data[i] = data[j];
+
+    // debugger;
+    let i = 0;
+
+
+
+    for (let j = 1; j < data.length; j++) {
+        if (data[i] !== data[j]) {
+            i++;
+            data[i] = data[j];
+        }
     }
-  }
-  return i + 1;
+
+    return i + 1;
 }
+let data = [0, 1, 1, 2, 2, 3, 3, 4, 5];
+console.log(Duplicar(data)); // 6
 
-let data = [0 , 1 , 1 , 2 , 2 , 3 , 3 , 4  , 5]; ///use A Sort Array 
-console.log(duplicates(data)); // 5
+// let arr = [0, 1, 1, 2, 2, 2];
+// console.log(Duplicar(arr)); // 3
 
-let arr = [0, 1, 1, 2, 2, 2];
-console.log(duplicates(arr)); // ✅ 3 (unique: 0,1,2)
+
+Index:  0  1  2
+Values: 0  1  2
+
+Last index = 2
+Total items = 3
+→ index + 1
 
 
 👉 That means:

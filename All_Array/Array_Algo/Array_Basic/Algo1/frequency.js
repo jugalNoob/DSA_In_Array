@@ -212,3 +212,94 @@ console.log(obj);
 | 1 | 20        | No                     | `obj[20] = 1` | `{10: 1, 20: 1}`               |
 | 2 | 30        | No                     | `obj[30] = 1` | `{10: 1, 20: 1, 30: 1}`        |
 | 3 | 40        | No                     | `obj[40] = 1` | `{10: 1, 20: 1, 30: 1, 40: 1}` |
+
+
+::::::::::::::::::::::::: ------------------------Check Adavance Level  ------------------------------>>#
+
+let  data=[10 , 20 , 30 , 40 , 10]
+
+let obj={}
+for(let i=0; i<data.length; i++){
+    let str=data[i]
+    if(obj[str]){  // 
+    obj[str]++
+    }else{
+        obj[str]=1
+    }
+}
+console.log(obj)
+
+
+
+🧠 What obj[str] Really Means
+obj[str]
+
+
+👉 Means:
+
+“Get the value stored at key str in object obj”
+
+🔍 First Time Check (Key Does NOT Exist)
+Example: str = 10
+obj[10]   // ❓
+
+
+Since key 10 is not yet present:
+
+obj[10] === undefined
+
+
+Now check:
+
+if (obj[str])   // if(undefined)
+
+
+👉 undefined is falsy
+👉 Condition fails
+👉 Goes to else
+
+obj[10] = 1
+
+
+✅ Key created
+
+🔁 Second Time Check (Key EXISTS)
+
+When str = 10 again:
+
+obj[10] === 1
+
+
+Now check:
+
+if (obj[str])   // if(1)
+
+
+👉 1 is truthy
+👉 Condition passes
+👉 Increment happens
+
+obj[10]++   // becomes 2
+
+⚠️ Important Rule (Truthy / Falsy)
+
+| Value       | if(value) |
+| ----------- | --------- |
+| `undefined` | ❌ false   |
+| `null`      | ❌ false   |
+| `0`         | ❌ false   |
+| `""`        | ❌ false   |
+| `1,2,3...`  | ✅ true    |
+
+
+Safer Check (Professional)
+if (obj.hasOwnProperty(str)) {
+  obj[str]++
+} else {
+  obj[str] = 1
+}
+
+
+OR
+
+obj[str] = (obj[str] || 0) + 1

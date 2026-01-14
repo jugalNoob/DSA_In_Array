@@ -26,7 +26,10 @@
 1) Quick summary (what reversing means)
 
 Reverse = flip order so element at index i goes to n-1-i.
-Invariant during an in-place reverse: after k swaps, first k and last k elements are placed in correct reversed positions.
+Invariant during an in-place reverse: after k swaps, 
+first k and last k elements are placed in correct reversed positions.
+
+
 
 2) Built-in method (behavior you should mention in interviews)
 let a = [1,2,3,4];
@@ -272,7 +275,125 @@ end--     → 1 (loop ends)
 
 
 
+///////// --------------------------------->>>
 
+1️⃣ WHY while LOOP IS USED
+❓ Why not for loop?
+
+Because two values change every iteration:
+
+start moves forward ➡️
+
+end moves backward ⬅️
+
+while loop is best when:
+
+Loop depends on a condition
+
+Number of iterations is not fixed
+
+Two pointers move toward each other
+
+📌 This is called the Two Pointer Technique.
+
+
+2️⃣ WHY end = data.length - 1
+Array Index Rule
+data = [10, 20, 30, 40]
+indexes: 0   1   2   3
+length = 4
+
+
+❌ WRONG:
+
+end = data.length // 4 (out of bounds)
+
+
+✅ CORRECT:
+
+end = data.length - 1 // 3 (last index)
+
+
+📌 Arrays are 0-based indexed
+
+3️⃣ WHY start < end CONDITION
+
+This prevents:
+
+Extra swaps
+
+Re-swapping the same element
+
+Infinite loop
+
+When pointers meet or cross → STOP
+
+
+| start | end | Meaning |
+| ----- | --- | ------- |
+| 0     | 3   | swap    |
+| 1     | 2   | swap    |
+| 2     | 1   | ❌ stop  |
+
+
+
+4️⃣ STEP-BY-STEP DRY RUN (IMPORTANT 🔥)
+Initial State
+data = [10, 20, 30, 40]
+start = 0
+end   = 3
+
+🔁 Iteration 1
+temp = data[0] = 10
+data[0] = data[3] = 40
+data[3] = temp = 10
+
+
+Result:
+
+[40, 20, 30, 10]
+start = 1
+end   = 2
+
+🔁 Iteration 2
+temp = data[1] = 20
+data[1] = data[2] = 30
+data[2] = temp = 20
+
+
+Result:
+
+[40, 30, 20, 10]
+start = 2
+end   = 1
+
+❌ Stop Condition
+start < end → 2 < 1 ❌
+
+
+Loop exits.
+
+5️⃣ WHY TEMP VARIABLE IS REQUIRED
+
+❌ Without temp:
+
+data[start] = data[end]
+data[end] = data[start] // value LOST
+
+
+✅ temp saves the original value.
+
+📌 This is in-place swapping (no extra array → O(1) space)
+
+
+7️⃣ TIME & SPACE COMPLEXITY (INTERVIEW)
+
+| Metric  | Value              |
+| ------- | ------------------ |
+| Time    | O(n/2) → O(n)      |
+| Space   | O(1)               |
+| Pattern | Two Pointer        |
+| Type    | In-place algorithm |
 
 
 
